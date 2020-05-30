@@ -1,5 +1,6 @@
 package webservice.service;
 
+import webservice.model.Order;
 import webservice.model.Product;
 import webservice.db.*;
 
@@ -85,5 +86,25 @@ public class StoreService {
         }
 
         return products;
+    }
+
+    public static boolean AddOrder(Order order){
+        String query = "INSERT INTO orders (firstName, lastName, email, phone, address, city, state, " +
+                "zip, productID, ship, total)" +
+                "VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+        Connection connection = DatabaseConnector.getConnection();
+
+        return DatabaseUtils.performDBUpdate(connection, query,
+                order.getFirstName(),
+                order.getLastName(),
+                order.getEmail(),
+                order.getPhone(),
+                order.getAddress(),
+                order.getCity(),
+                order.getState(),
+                order.getZip(),
+                order.getProductCart(),
+                order.getShipMeth(),
+                order.getPrice());
     }
 }
