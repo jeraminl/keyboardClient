@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+
+
+    <servlet>
+        <servlet-name>Jersey REST Service</servlet-name>
+        <!-- This is required. This class is obtained from your jersey-all library . Make sure it is imported into your project -->
+        <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+        <init-param>
+            <param-name>jersey.config.server.provider.packages</param-name>
+            <!-- Specify the package where your Resource class is located-->
+            <param-value>webservice</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Jersey REST Service</servlet-name>
+        <!-- This is the URL pattern for the target path segment that will precede the path segment specified
+        for the resource-->
+        <url-pattern>/api/*</url-pattern>
+    </servlet-mapping>
+</web-app>
