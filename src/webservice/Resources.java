@@ -16,7 +16,6 @@ import java.util.List;
 public class Resources {
     // The Java method will process HTTP GET requests
     @GET
-    // The Java method will produce content identified by the MIME Media type "text/plain"
     @Produces( { MediaType.APPLICATION_JSON })
     public Response loadProducts() throws Exception{
         List<Product> productList = StoreService.getAllProducts();
@@ -31,7 +30,6 @@ public class Resources {
 
     @Path("{id}")
     @GET
-    // The Java method will produce content identified by the MIME Media type "text/plain"
     @Produces( { MediaType.APPLICATION_JSON })
     public Response loadSingleProduct(@PathParam("id") int id) throws Exception{
         Product product = StoreService.getProductById(id);
@@ -85,6 +83,21 @@ public class Resources {
 
         if(StoreService.AddOrder(order)){
             return Response.ok().entity("order added successfully").build();
+        }
+
+        return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
+
+    }
+
+    @POST
+    @Consumes({MediaType.APPLICATION_JSON})
+    public Response addOrder(Order order){
+
+
+        System.out.println(order.toString());
+
+        if(StoreService.AddOrder(order)){
+            return Response.ok().entity("order object added successfully").build();
         }
 
         return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
