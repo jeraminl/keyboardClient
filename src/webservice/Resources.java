@@ -64,7 +64,10 @@ public class Resources {
                              @FormParam("billingState") String billingState,
                              @FormParam("billingZip") String billingZip,
                              @FormParam("productCart") String productCart,
-                             @FormParam("price") String price){
+                             @FormParam("finalPrice") String price){
+
+        System.out.println(price);
+
         Order order = new Order();
         order.setFirstName(firstName);
         order.setLastName(lastName);
@@ -78,7 +81,7 @@ public class Resources {
         order.setShipMeth(shipMeth);
         order.setPrice(price);
 
-        System.out.println(order);
+        System.out.println(order.toString());
 
         if(StoreService.AddOrder(order)){
             return Response.ok().entity("order added successfully").build();

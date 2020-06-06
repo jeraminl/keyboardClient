@@ -9,9 +9,10 @@ public class Order {
     private String city;
     private String state;
     private String zip;
+    private String productCart;
     private String shipMeth;
     private String price;
-    private String productCart;
+
 
     public String getFirstName() {
         return firstName;
@@ -61,30 +62,6 @@ public class Order {
         this.city = city;
     }
 
-    public String getShipMeth() {
-        return shipMeth;
-    }
-
-    public void setShipMeth(String shipMeth) {
-        this.shipMeth = shipMeth;
-    }
-
-    public String getPrice() {
-        return price;
-    }
-
-    public void setPrice(String price) {
-        this.price = price;
-    }
-
-    public String getProductCart() {
-        return productCart;
-    }
-
-    public void setProductCart(String productCart) {
-        this.productCart = productCart;
-    }
-
     public String getState() {
         return state;
     }
@@ -99,5 +76,49 @@ public class Order {
 
     public void setZip(String zip) {
         this.zip = zip;
+    }
+
+
+
+    public String getProductCart() {
+        return productCart;
+    }
+
+    public void setProductCart(String productCart) {
+        this.productCart = productCart;
+    }
+
+    public String getShipMeth() {
+        return shipMeth;
+    }
+
+    public void setShipMeth(String shipMeth) {
+        this.shipMeth = shipMeth;
+    }
+
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", address='" + address + '\'' +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", zip='" + zip + '\'' +
+                ", productCart='" + productCart + '\'' +
+                ", shipMeth='" + shipMeth + '\'' +
+                ", price='" + price + '\'' +
+                '}';
     }
 }
